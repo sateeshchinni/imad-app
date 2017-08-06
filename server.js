@@ -62,6 +62,8 @@ var htmlTemplate=`<html>
     
 </html>
 `;
+
+return htmlTemplate;
 }
 
 app.get('/', function (req, res) {
