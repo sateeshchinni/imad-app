@@ -5,6 +5,63 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles = {
+    'article-one' : {
+    
+    title :'article one | Sateesh Chinni',
+    heading :'Article one',
+    date : 'aug 6 2017',
+    content : `<p>
+                this is dhe contentds of my first article.
+            </p>
+            
+                        <p>
+                this is the content of my first article.
+            </p>
+
+
+            <p>
+                this is the content of my first article.
+            </p>`
+},
+'article-two' : {
+    
+    title :'article two | Sateesh Chinni',
+    heading :'Article two',
+    date : 'aug 6 2017',
+    content : `<p>
+                this is dhe contentds of my second article.
+            </p>
+            
+                        <p>
+                this is the content of my second article.
+            </p>
+
+
+            <p>
+                this is the content of my second article.
+            </p>`
+},
+'article-three' : {
+    
+    title :'article third | Sateesh Chinni',
+    heading :'Article three',
+    date : 'aug 6 2017',
+    content : `<p>
+                this is dhe contentds of my third article.
+            </p>
+            
+                        <p>
+                this is the content of my third article.
+            </p>
+
+
+            <p>
+                this is the content of my third article.
+            </p>`
+},
+    
+}
 
 var articleOne = {
     
@@ -70,21 +127,29 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
+// app.get('/article-one',function(req,res){
+//   //res.send('Artile one requested and will  be served here')  ;
+//   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+//   res.send(createTemplate(articleOne));
+// });
+
+
+app.get('/:articleName',function(req,res){
   //res.send('Artile one requested and will  be served here')  ;
   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-  res.send(createTemplate(articleOne));
+  var articleName =req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two',function(req,res){
-   //res.send('Article two requested and will be served here');
-     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
+// app.get('/article-two',function(req,res){
+//   //res.send('Article two requested and will be served here');
+//      res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+// });
 
-app.get('/article-three',function(req,res){
-   //res.send('Article three requested and will be served here');
-     res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+// app.get('/article-three',function(req,res){
+//   //res.send('Article three requested and will be served here');
+//      res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+// });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
