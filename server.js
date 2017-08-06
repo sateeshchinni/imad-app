@@ -28,7 +28,7 @@ var articles = {
     
     title :'article two | Sateesh Chinni',
     heading :'Article two',
-    date : 'aug 6 2017',
+    date : 'aug 16 2017',
     content : `<p>
                 this is dhe contentds of my second article.
             </p>
@@ -46,7 +46,7 @@ var articles = {
     
     title :'article third | Sateesh Chinni',
     heading :'Article three',
-    date : 'aug 6 2017',
+    date : 'aug 17 2017',
     content : `<p>
                 this is dhe contentds of my third article.
             </p>
