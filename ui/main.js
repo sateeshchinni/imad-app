@@ -21,6 +21,7 @@ button.onclick = function (){
    
    request.open('GET','http://msgtosateesh.imad.hasura-app.io/counter',true);
    request.send(null);
+};
    
    
    var nameInput = document.getElementById('name');
@@ -29,7 +30,7 @@ button.onclick = function (){
    
    submit.onclick = function(){
      
-     var names= [ 'name1','name2','name3'];
+     var names= [ 'name1','name2','name3','name4'];
      
      var list = '';
      
@@ -47,7 +48,7 @@ button.onclick = function (){
 //   var span = document.getElementById('count');
 //   span.innerHTML = counter.toString();
     
-};
+
 
 
 // console.log('Loaded!');
