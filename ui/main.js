@@ -55,7 +55,7 @@ button.onclick = function (){
    var name=nameInput.value;
 
       
-   request.open('GET','http://msgtosateesh.imad.hasura-app.io/submit-name=' + name ,true);
+   request.open('GET','http://msgtosateesh.imad.hasura-app.io/submit-name?name=' + name ,true);
    request.send(null);
 
 };
