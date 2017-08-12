@@ -123,9 +123,6 @@ var htmlTemplate=`<html>
             ${content}
 
         </div>
-        // <script>
-        // alert('Hi, this is sateesh');
-        // </script>
     </div>        
     </body>
     
