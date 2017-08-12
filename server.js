@@ -183,10 +183,10 @@ app.get('/submit-name',function(req,res){
 app.get('/articles/:articleName',function(req,res){
   //res.send('Artile one requested and will  be served here')  ;
   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-  var articleName =req.params.articleName;
+  //var articleName =req.params.articleName;
   //res.send(createTemplate(articles[articleName]));
   var articleData = 
-  pool.query("SELECT * FROM ARTICLE1 WHERE title = " + req.params.articleName, function(req,result){
+  pool.query("SELECT * FROM ARTICLE1 WHERE title = " + req.params.articleName, function(err,result){
       if(err){
           res.status(500).send(err.toString());
       }else{
