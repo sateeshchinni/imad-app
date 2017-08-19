@@ -225,6 +225,11 @@ app.get('/check-login',function(req,res){
     
 });
 
+app.get('/logout',function(req,res){
+delete req.session.auth;
+res.send('logged out');
+});
+
 
 // app.get('/article-one',function(req,res){
 //   //res.send('Artile one requested and will  be served here')  ;
