@@ -57,8 +57,45 @@ button.onclick = function (){
       
    request.open('GET','http://msgtosateesh.imad.hasura-app.io/submit-name?name=' + name ,true);
    request.send(null);
-
+   
+  
 };
+
+ 
+   var submits = document.getElementById('submit_btn2');
+   
+   submits.onclick = function(){
+       
+          var request = new XMLHttpRequest();
+   
+   request.onreadystatechange = function (){
+     if(request.readyState === XMLHttpRequest.DONE) {
+         if(request.status === 200){
+            console.log('user logged in') ;
+            alert('logged in successfully')
+       }else if (request.status === 403){
+           alert('username/password is incorrect');
+       }else if(request.status === 500){
+           alert('something went wrong on the server');
+       }
+             
+         }
+     };
+   
+   var username = document.getElementById('username');
+   var password = document.getElementById('password');
+   
+   console.log(username);
+   console.log(password);
+   
+      
+   request.open('POST','http://msgtosateesh.imad.hasura-app.io/login',true);
+   request.setRequestHeader ('Contect-Type','application/json');
+   request.send(JSON.stringify({username:username,password:password}));
+   
+};
+
+
      
    
    
