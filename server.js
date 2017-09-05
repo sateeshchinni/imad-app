@@ -189,7 +189,7 @@ app.post('/login',function(req,res){
 
    pool.query('select * from  "user2" where username = $1' ,[username],function (err,result){
          if(err){
-            res.status(500).send(JSON.parse('{"error":"Error Occurred while login: ' + err.toString() + ' "} ') );
+            res.status(500).send(JSON.parse('{"error":"Error Occurred while login "} ') );
         }else{
             if(result.rows.length === 0){
              res.send(403).send(JSON.parse('{"error":"Username/Password is incorrect"} ') );
