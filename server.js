@@ -170,7 +170,7 @@ app.post('/create-user',function(req,res){
    var dbString = hash(password,salt);
    pool.query('insert into "user2" (username,password) values ($1,$2)',[username,dbString],function (err,result){
          if(err){
-            res.status(500).send(err.toString());
+            res.status(500).send(JSON.parse('{"error":"Error Occurred while creating User : ' + err.toString() + ' "} ') );
         }else{
 
          res.send(JSON.parse('{"message":"User successfully created: ' + username + ' "} ') );
@@ -189,10 +189,14 @@ app.post('/login',function(req,res){
 
    pool.query('select * from  "user2" where username = $1' ,[username],function (err,result){
          if(err){
-            res.status(500).send(err.toString());
+            res.status(500).send(JSON.parse('{"error":"Error Occurred while login: ' + err.toString() + ' "} ') );
         }else{
             if(result.rows.length === 0){
-             res.send(403).send("username/password is incorrect");
+             res.send(403).send(JSON.parse('{"error":"Username/Password is incorrect"} ') );
+             
+             
+             
+             
             }else{
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
@@ -204,9 +208,14 @@ app.post('/login',function(req,res){
                     
                     req.session.auth = {userId : result.rows[0].id};
                     
-                    res.send('credentials correct');                    
+                    //res.send('credentials correct');                    
+                    
+                    res.send(JSON.parse('{"message":"credentials correct"}'));
+                    
                 }else{
-                    res.send(403).send("username/password is invalid");
+
+                    res.send(403).send(JSON.parse('{"error":"Username/Password is invalid"} ') );
+                    
                 }
                 
 
