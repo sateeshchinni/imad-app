@@ -210,7 +210,7 @@ app.post('/login',function(req,res){
                     
                     //res.send('credentials correct');                    
                     
-                    res.send(JSON.parse('{"message":"credentials correct"}'));
+                    res.send(JSON.parse('{"message":"You have login successfully"}'));
                     
                 }else{
 
