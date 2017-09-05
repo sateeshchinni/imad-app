@@ -170,7 +170,7 @@ app.post('/create-user',function(req,res){
    var dbString = hash(password,salt);
    pool.query('insert into "user2" (username,password) values ($1,$2)',[username,dbString],function (err,result){
          if(err){
-            res.status(500).send(JSON.parse('{"error":"Error Occurred while creating User : ' + err.toString() + ' "} ') );
+            res.status(500).send(JSON.parse('{"error":"Error Occurred while creating User :  "} ') );
         }else{
 
          res.send(JSON.parse('{"message":"User successfully created: ' + username + ' "} ') );
